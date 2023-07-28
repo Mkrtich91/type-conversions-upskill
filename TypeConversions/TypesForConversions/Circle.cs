@@ -1,5 +1,3 @@
-using System;
-
 namespace TypeConversions.TypesForConversions
 {
     public class Circle : Shape

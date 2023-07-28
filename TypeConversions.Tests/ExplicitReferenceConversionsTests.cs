@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using NUnit.Framework;
 using TypeConversions.TypesForConversions;
 using static TypeConversions.ExplicitReferenceConversions;
@@ -8,11 +6,21 @@ namespace TypeConversions.Tests
 {
     public class ExplicitReferenceConversionsTests
     {
+#pragma warning disable IDE0044
         private static string circleName = "Circle";
+#pragma warning restore IDE0044
+#pragma warning disable IDE0044
         private static string squareName = "Square";
+#pragma warning restore IDE0044
+#pragma warning disable IDE0044
         private static double side = 1.1;
+#pragma warning restore IDE0044
+#pragma warning disable IDE0044
         private static double radius = 2.3;
+#pragma warning restore IDE0044
+#pragma warning disable IDE0044
         private static Color color = Color.Blue;
+#pragma warning restore IDE0044
 
         public static IEnumerable<TestCaseData> ObjectToCircleTestCases
         {

@@ -1,5 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
 using NUnit.Framework;
 using TypeConversions.TypesForConversions;
 using static TypeConversions.ImplicitReferenceConversions;

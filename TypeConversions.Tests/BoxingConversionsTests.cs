@@ -1,5 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
 using NUnit.Framework;
 using TypeConversions.TypesForConversions;
 using static TypeConversions.BoxingConversions;
@@ -25,7 +23,9 @@ namespace TypeConversions.Tests
         {
             object obj = BoxToObject(point);
             (point.X, point.Y) = (++point.X, ++point.Y);
+#pragma warning disable IDE0038
             Point pointAgain = obj is Point ? (Point)obj : default;
+#pragma warning restore IDE0038
             Assert.IsFalse(pointAgain.Equals(point));
         }
 
@@ -35,7 +35,9 @@ namespace TypeConversions.Tests
         {
             object obj = BoxToValueType(point);
             (point.X, point.Y) = (++point.X, ++point.Y);
+#pragma warning disable IDE0038
             Point pointAgain = obj is Point ? (Point)obj : default;
+#pragma warning restore IDE0038
             Assert.IsFalse(pointAgain.Equals(point));
         }
 
@@ -45,7 +47,9 @@ namespace TypeConversions.Tests
         {
             IColorable obj = BoxToIColorable(point);
             point.Colorize(Color.Purple);
+#pragma warning disable IDE0038
             Point pointAgain = obj is Point ? (Point)obj : default;
+#pragma warning restore IDE0038
             Assert.IsFalse(pointAgain.Equals(point));
         }
 
@@ -56,7 +60,9 @@ namespace TypeConversions.Tests
         {
             object obj = BoxToObject(value);
             value = default;
+#pragma warning disable IDE0038
             int valueAgain = obj is int ? (int)obj : default;
+#pragma warning restore IDE0038
             Assert.IsFalse(value.Equals(valueAgain));
         }
 
@@ -67,7 +73,9 @@ namespace TypeConversions.Tests
         {
             ValueType valueType = BoxToValueType(value);
             value = default;
+#pragma warning disable IDE0038
             int valueAgain = valueType is int ? (int)valueType : default;
+#pragma warning restore IDE0038
             Assert.IsFalse(value.Equals(valueAgain));
         }
 
@@ -78,7 +86,9 @@ namespace TypeConversions.Tests
         {
             IFormattable formattable = BoxToIFormattable(value);
             value = default;
+#pragma warning disable IDE0038
             int valueAgain = formattable is int ? (int)formattable : default;
+#pragma warning restore IDE0038
             Assert.IsFalse(value.Equals(valueAgain));
         }
 
@@ -89,7 +99,9 @@ namespace TypeConversions.Tests
         {
             object obj = BoxToObject(color);
             color = Color.Yellow;
+#pragma warning disable IDE0038
             Color colorAgain = obj is Color ? (Color)obj : default;
+#pragma warning restore IDE0038
             Assert.IsFalse(color.Equals(colorAgain));
         }
 
@@ -100,7 +112,9 @@ namespace TypeConversions.Tests
         {
             ValueType valueType = BoxToValueType(color);
             color = Color.Yellow;
+#pragma warning disable IDE0038
             Color colorAgain = valueType is Color ? (Color)valueType : default;
+#pragma warning restore IDE0038
             Assert.IsFalse(color.Equals(colorAgain));
         }
 
@@ -111,7 +125,9 @@ namespace TypeConversions.Tests
         {
             Enum @enum = BoxToEnum(color);
             color = Color.Yellow;
+#pragma warning disable IDE0038
             Color colorAgain = @enum is Color ? (Color)@enum : default;
+#pragma warning restore IDE0038
             Assert.IsFalse(color.Equals(colorAgain));
         }
     }

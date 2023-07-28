@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using NUnit.Framework;
 using TypeConversions.TypesForConversions;
 using static TypeConversions.UnboxingConversions;
@@ -133,7 +131,11 @@ namespace TypeConversions.Tests
         [Category("Unboxing Conversions")]
         public void Convert_FromObject_ReturnColor(object obj, Func<object, Color?> converter)
         {
+#pragma warning disable S1854
+#pragma warning disable IDE0059
             Color color = (Color)converter(obj)!;
+#pragma warning restore IDE0059
+#pragma warning restore S1854
             color = Color.Purple;
             Assert.That(color.GetType() == obj.GetType());
             Assert.That(!color.Equals(obj));
@@ -143,7 +145,11 @@ namespace TypeConversions.Tests
         [Category("Unboxing Conversions")]
         public void Convert_FromValueType_ReturnColor(ValueType valueType, Func<ValueType, Color?> converter)
         {
+#pragma warning disable IDE0059
+#pragma warning disable S1854
             Color color = (Color)converter(valueType)!;
+#pragma warning restore S1854
+#pragma warning restore IDE0059
             color = Color.Purple;
             Assert.That(color.GetType() == valueType.GetType());
             Assert.That(!color.Equals(valueType));
@@ -153,7 +159,11 @@ namespace TypeConversions.Tests
         [Category("Unboxing Conversions")]
         public void Convert_FromEnum_ReturnColor(Enum @enum, Func<Enum, Color?> converter)
         {
+#pragma warning disable IDE0059
+#pragma warning disable S1854
             Color color = (Color)converter(@enum)!;
+#pragma warning restore S1854
+#pragma warning restore IDE0059
             color = Color.Purple;
             Assert.That(color.GetType() == @enum.GetType());
             Assert.That(!color.Equals(@enum));
@@ -163,7 +173,11 @@ namespace TypeConversions.Tests
         [Category("Unboxing Conversions")]
         public void Convert_FromObject_ReturnInt32(object obj, Func<object, int?> converter)
         {
+#pragma warning disable IDE0059
+#pragma warning disable S1854
             int value = (int)converter(obj)!;
+#pragma warning restore S1854
+#pragma warning restore IDE0059
             value = int.MinValue;
             Assert.That(value.GetType() == obj.GetType());
             Assert.That(!value.Equals(obj));
@@ -173,7 +187,11 @@ namespace TypeConversions.Tests
         [Category("Unboxing Conversions")]
         public void Convert_FromObject_ReturnInt32(ValueType valueType, Func<ValueType, int?> converter)
         {
+#pragma warning disable IDE0059
+#pragma warning disable S1854
             int value = (int)converter(valueType)!;
+#pragma warning restore S1854
+#pragma warning restore IDE0059
             value = int.MinValue;
             Assert.That(value.GetType() == valueType.GetType());
             Assert.That(!value.Equals(valueType));
@@ -183,7 +201,11 @@ namespace TypeConversions.Tests
         [Category("Unboxing Conversions")]
         public void Convert_FromIFormattable_ReturnInt32(IFormattable formattable, Func<IFormattable, int?> converter)
         {
+#pragma warning disable IDE0059
+#pragma warning disable S1854
             int value = (int)converter(formattable)!;
+#pragma warning restore S1854
+#pragma warning restore IDE0059
             value = int.MinValue;
             Assert.That(value.GetType() == formattable.GetType());
             Assert.That(!value.Equals(formattable));
